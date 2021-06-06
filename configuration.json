@@ -1,50 +1,60 @@
 {
-    "1" : {
-        "titre_court"   : "Appartement 1",
-        "titre_long"    : "Joli T2 en centre de Toulouse",
+    "general" : {
+        "titre" : "Immeuble situé en plein centre de Toulouse",
+        "description" : "Magnifique résidence surveillée située en plein centre de Toulouse.\n\n Cette immeuble compte 3 étages et un total de 18 appartements",
         "images" : [
-            "./images/1/image1.jpg",
-            "./images/1/image2.jpeg",
-            "./images/1/image3.jpg"
-        ],
-        "description" : "T2 32M2 + balcon(4m2) au 1er étage\nA louer à un étudiant avec une caution parentale\nPièces :\nKitchinette équipée\nSalle de bain équipée de mitigeurs\nChambre de 10M²",
-        "status_color" : "green",
-        "status_text" : "Libre"
+            "./images/general/image1.jpg",
+            "./images/general/image2.jpg"
+        ]
     },
-    "2" : {
-        "titre_court"   : "Appartement 2",
-        "titre_long"    : "Appartement en plein coeur de Toulouse",
-        "images" : [
-            "./images/2/image1.jpg",
-            "./images/2/image2.jfif",
-            "./images/2/image3.jpg"
-        ],
-        "description" : "T1 21M2 + balcon(4m2) au 1er étage\nA louer à un étudiant avec une caution parentale\nPièces :\nKitchinette équipée\nSalle de bain équipée de mitigeurs\nChambre de 10M²",
-        "status_color" : "red",
-        "status_text" : "Occupé pour une durée indéterminée"
-    },
-    "3" : {
-        "titre_court"   : "Appartement 3",
-        "titre_long"    : "T4 situé à côté du métro",
-        "images" : [
-            "./images/3/image1.jpg",
-            "./images/3/image2.jfif",
-            "./images/3/image3.jpg"
-        ],
-        "description" : "T1 21M2 + balcon(4m2) au 1er étage\nA louer à un étudiant avec une caution parentale\nPièces :\nKitchinette équipée\nSalle de bain équipée de mitigeurs\nChambre de 10M²",
-        "status_color" : "yellow",
-        "status_text" : "Sera libre le 12 Juin 2021"
-    },
-    "4" : {
-        "titre_court"   : "Appartement 4",
-        "titre_long"    : "Appartement situé en campagne pour week-end détente",
-        "images" : [
-            "./images/4/image1.jpg",
-            "./images/4/image2.jpeg",
-            "./images/4/image3.jpg"
-        ],
-        "description" : "T1 21M2 + balcon(4m2) au 1er étage\nA louer à un étudiant avec une caution parentale\nPièces :\nKitchinette équipée\nSalle de bain équipée de mitigeurs\nChambre de 10M²",
-        "status_color" : "other",
-        "status_text" : "Pas encore disponible"
+    "appartement" : {
+        "1" : {
+            "titre_court"   : "Appartement 1",
+            "titre_long"    : "Joli T2 en centre de Toulouse",
+            "images" : [
+                "./images/1/image1.jpg",
+                "./images/1/image2.jpeg",
+                "./images/1/image3.jpg"
+            ],
+            "description" : "T2 32M2 + balcon(4m2) au 1er étage\nA louer à un étudiant avec une caution parentale\nPièces :\nKitchinette équipée\nSalle de bain équipée de mitigeurs\nChambre de 10M²",
+            "status_color" : "green",
+            "status_text" : "Libre"
+        },
+        "2" : {
+            "titre_court"   : "Appartement 2",
+            "titre_long"    : "Appartement en plein coeur de Toulouse",
+            "images" : [
+                "./images/2/image1.jpg",
+                "./images/2/image2.jfif",
+                "./images/2/image3.jpg"
+            ],
+            "description" : "T1 21M2 + balcon(4m2) au 1er étage\nA louer à un étudiant avec une caution parentale\nPièces :\nKitchinette équipée\nSalle de bain équipée de mitigeurs\nChambre de 10M²",
+            "status_color" : "red",
+            "status_text" : "Occupé pour une durée indéterminée"
+        },
+        "3" : {
+            "titre_court"   : "Appartement 3",
+            "titre_long"    : "T4 situé à côté du métro",
+            "images" : [
+                "./images/3/image1.jpg",
+                "./images/3/image2.jfif",
+                "./images/3/image3.jpg"
+            ],
+            "description" : "T1 21M2 + balcon(4m2) au 1er étage\nA louer à un étudiant avec une caution parentale\nPièces :\nKitchinette équipée\nSalle de bain équipée de mitigeurs\nChambre de 10M²",
+            "status_color" : "yellow",
+            "status_text" : "Sera libre le 12 Juin 2021"
+        },
+        "4" : {
+            "titre_court"   : "Appartement 4",
+            "titre_long"    : "Appartement situé en campagne pour week-end détente",
+            "images" : [
+                "./images/4/image1.jpg",
+                "./images/4/image2.jpeg",
+                "./images/4/image3.jpg"
+            ],
+            "description" : "T1 21M2 + balcon(4m2) au 1er étage\nA louer à un étudiant avec une caution parentale\nPièces :\nKitchinette équipée\nSalle de bain équipée de mitigeurs\nChambre de 10M²",
+            "status_color" : "other",
+            "status_text" : "Pas encore disponible"
+        }
     }
 }

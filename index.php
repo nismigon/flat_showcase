@@ -47,7 +47,7 @@
                             <?php
                         }
                         else {
-                            foreach($json as $key => $value) {
+                            foreach($json->{"appartement"} as $key => $value) {
                                 ?>
                                 <li class="nav-item d-flex align-items-center justify-content-start">
                                     <a href="index.php?id=<?php echo($key); ?>&image=0" class="nav-link <?php
@@ -69,7 +69,7 @@
             <div class="col-9">
                 <?php if(isset($_GET["id"])) {
                     ?>
-                    <h1 class="text-center"><?php echo($json->{$_GET["id"]}->{"titre_long"});?></h1>
+                    <h1 class="text-center"><?php echo($json->{"appartement"}->{$_GET["id"]}->{"titre_long"});?></h1>
                     <br />
                     <hr style="width: 50%; margin: auto"/>
                     <br />
@@ -77,7 +77,7 @@
                         <div class="carousel-inner">
                             <?php
                                 $count = 0;
-                                foreach ($json->{$_GET["id"]}->{"images"} as $image) {
+                                foreach ($json->{"appartement"}->{$_GET["id"]}->{"images"} as $image) {
                                     ?>
                                     <div class="carousel-item <?php if($count == $_GET["image"]) echo("active") ?>">
                                         <img class="d-block w-100" src="<?php echo($image) ?>" alt="Image">
@@ -88,9 +88,9 @@
                             ?>
                         </div>
                         <?php
-                        $next_image = ($_GET["image"] + 1) % count($json->{$_GET["id"]}->{"images"});
-                        $previous_image = ($_GET["image"] - 1) == -1 ? count($json->{$_GET["id"]}->{"images"}) -1 :
-                            ($_GET["image"] - 1) % count($json->{$_GET["id"]}->{"images"});
+                        $next_image = ($_GET["image"] + 1) % count($json->{"appartement"}->{$_GET["id"]}->{"images"});
+                        $previous_image = ($_GET["image"] - 1) == -1 ? count($json->{"appartement"}->{$_GET["id"]}->{"images"}) -1 :
+                            ($_GET["image"] - 1) % count($json->{"appartement"}->{$_GET["id"]}->{"images"});
                         $next_url = "index.php?id=" . $_GET["id"] . "&image=" . $next_image;
                         $previous_url = "index.php?id=" . $_GET["id"] . "&image=" . $previous_image;
                         ?>
@@ -107,7 +107,7 @@
                     <hr style="width: 50%; margin: auto"/>
                     <br />
                     <?php
-                        $description = str_replace("\n", "<br />", $json->{$_GET["id"]}->{"description"});
+                        $description = str_replace("\n", "<br />", $json->{"appartement"}->{$_GET["id"]}->{"description"});
                     ?>
                     <ul class="list-group" style="width: 80%; margin: auto">
                         <li class="list-group-item active"><h2>Description</h2></li>
@@ -117,11 +117,11 @@
                     <hr style="width: 50%; margin: auto"/>
                     <br />
                     <?php
-                        if ($json->{$_GET["id"]}->{"status_color"} == "green") {
+                        if ($json->{"appartement"}->{$_GET["id"]}->{"status_color"} == "green") {
                             $status_color = "list-group-item-success";
-                        } else if ($json->{$_GET["id"]}->{"status_color"} == "red") {
+                        } else if ($json->{"appartement"}->{$_GET["id"]}->{"status_color"} == "red") {
                             $status_color = "list-group-item-danger";
-                        } else if ($json->{$_GET["id"]}->{"status_color"} == "yellow") {
+                        } else if ($json->{"appartement"}->{$_GET["id"]}->{"status_color"} == "yellow") {
                             $status_color = "list-group-item-warning";
                         } else {
                             $status_color = "list-group-item-light";
@@ -132,12 +132,66 @@
                             <h2>Status</h2>
                         </li>
                         <li class="list-group-item <?php echo($status_color)?>">
-                            <?php echo($json->{$_GET["id"]}->{"status_text"}); ?>
+                            <?php echo($json->{"appartement"}->{$_GET["id"]}->{"status_text"}); ?>
                         </li>
                     </ul>
                     <br />
                     <?php
-                } ?>
+                } else {
+                    $general = $json->{"general"};
+                    if (isset($_GET["image"])) {
+                        $image_number = $_GET["image"];
+                    } else {
+                        $image_number = 0;
+                    }
+                    ?>
+                    <h1 class="text-center"><?php echo($general->{"titre"});?></h1>
+                    <br />
+                    <hr style="width: 50%; margin: auto"/>
+                    <br />
+                    <div id="carouselImages" class="carousel slide" data-ride="carousel" style="max-width: 80%; margin : auto;">
+                        <div class="carousel-inner">
+                            <?php
+                            $count = 0;
+                            foreach ($general->{"images"} as $image) {
+                                ?>
+                                <div class="carousel-item <?php if($count == $image_number) echo("active") ?>">
+                                    <img class="d-block w-100" src="<?php echo($image) ?>" alt="Image">
+                                </div>
+                                <?php
+                                $count++;
+                            }
+                            ?>
+                        </div>
+                        <?php
+                        $next_image = ($image_number + 1) % count($general->{"images"});
+                        $previous_image = ($image_number - 1) == -1 ? count($general->{"images"}) -1 :
+                            ($image_number - 1) % count($general->{"images"});
+                        $next_url = "index.php?image=" . $next_image;
+                        $previous_url = "index.php?image=" . $previous_image;
+                        ?>
+                        <a class="carousel-control-prev" href="<?php echo($previous_url) ?>" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="<?php echo($next_url) ?>" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <br />
+                    <hr style="width: 50%; margin: auto"/>
+                    <br />
+                    <?php
+                    $description = str_replace("\n", "<br />", $general->{"description"});
+                    ?>
+                    <ul class="list-group" style="width: 80%; margin: auto">
+                        <li class="list-group-item active"><h2>Description</h2></li>
+                        <li class="list-group-item"><?php echo($description); ?></li>
+                    </ul>
+                    <br />
+                    <?php
+                }?>
             </div>
         </div>
     </div>
